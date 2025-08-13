@@ -1,4 +1,4 @@
-package com.vaidhika_dharma
+package com.vaidhika_dharma_app
 
 import android.app.Application
 import com.facebook.react.PackageList

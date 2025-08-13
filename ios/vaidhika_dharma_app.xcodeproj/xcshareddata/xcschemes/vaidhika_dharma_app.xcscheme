@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "vaidhika_dharma.app"
-               BlueprintName = "vaidhika_dharma"
-               ReferencedContainer = "container:vaidhika_dharma.xcodeproj">
+               BuildableName = "vaidhika_dharma_app.app"
+               BlueprintName = "vaidhika_dharma_app"
+               ReferencedContainer = "container:vaidhika_dharma_app.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "vaidhika_dharmaTests.xctest"
-               BlueprintName = "vaidhika_dharmaTests"
-               ReferencedContainer = "container:vaidhika_dharma.xcodeproj">
+               BuildableName = "vaidhika_dharma_appTests.xctest"
+               BlueprintName = "vaidhika_dharma_appTests"
+               ReferencedContainer = "container:vaidhika_dharma_app.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,9 +55,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "vaidhika_dharma.app"
-            BlueprintName = "vaidhika_dharma"
-            ReferencedContainer = "container:vaidhika_dharma.xcodeproj">
+            BuildableName = "vaidhika_dharma_app.app"
+            BlueprintName = "vaidhika_dharma_app"
+            ReferencedContainer = "container:vaidhika_dharma_app.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -72,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "vaidhika_dharma.app"
-            BlueprintName = "vaidhika_dharma"
-            ReferencedContainer = "container:vaidhika_dharma.xcodeproj">
+            BuildableName = "vaidhika_dharma_app.app"
+            BlueprintName = "vaidhika_dharma_app"
+            ReferencedContainer = "container:vaidhika_dharma_app.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

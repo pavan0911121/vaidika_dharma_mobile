@@ -77,9 +77,9 @@ android {
     buildToolsVersion rootProject.ext.buildToolsVersion
     compileSdk rootProject.ext.compileSdkVersion
 
-    namespace "com.vaidhika_dharma"
+    namespace "com.vaidhika_dharma_app"
     defaultConfig {
-        applicationId "com.vaidhika_dharma"
+        applicationId "com.vaidhika_dharma_app"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
