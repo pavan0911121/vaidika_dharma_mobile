@@ -1,24 +1,19 @@
 import * as React from 'react';
 import { View, Text } from 'react-native';
-import { createStaticNavigation } from '@react-navigation/native';
+import { createStaticNavigation, NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import Login from './src/Authentication/Login';
+import Home from './src/Home/Home';
 
-function HomeScreen() {
-  return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text>Home Screen</Text>
-    </View>
-  );
-}
-
-const RootStack = createNativeStackNavigator({
-  screens: {
-    Home: HomeScreen,
-  },
-});
-
-const Navigation = createStaticNavigation(RootStack);
+const Stack = createNativeStackNavigator();
 
 export default function App() {
-  return <Navigation />;
+  return (
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="Login" component={Login}  options={{ headerShown: false, gestureEnabled: false}}/>
+        <Stack.Screen name="Home" component={Home}  options={{ headerShown: false, gestureEnabled: false}}/>
+      </Stack.Navigator>
+    </NavigationContainer>
+  )
 }
