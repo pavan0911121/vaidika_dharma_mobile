@@ -28,6 +28,6 @@ export default Light;
 
 const styles = StyleSheet.create({
   text: {
-    fontFamily: "Poppins-Bold", // ensure font is added & linked
+    fontFamily: "Poppins-Light", // ensure font is added & linked
   },
 });

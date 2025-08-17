@@ -38,7 +38,10 @@ const slides = [
     image: require("../../assets/images/ganesh.png"),
   },
 ];
-const Login: React.FC<Props> = () => {
+interface Props{
+    
+}
+const Onboarding: React.FC<Props> = () => {
   const flatListRef = useRef(null);
   const [currentIndex, setCurrentIndex] = useState(0);
   const timerRef = useRef(null);
@@ -123,7 +126,7 @@ const Login: React.FC<Props> = () => {
   )
 }
 
-export default Login
+export default Onboarding
 const styles = StyleSheet.create({
   container: {
     flex: 1,
