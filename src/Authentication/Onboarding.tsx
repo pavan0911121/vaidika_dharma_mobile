@@ -9,7 +9,7 @@ import {
   Dimensions,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import PrimaryButon from "../CustomComponents/PrimaryButon";
+import PrimaryButton from "../CustomComponents/PrimaryButton";
 import Regular from "../CustomComponents/Regular";
 import Bold from "../CustomComponents/Bold";
 
@@ -115,7 +115,7 @@ const Onboarding: React.FC<Props> = () => {
           ))}
         </View>
         {/* Next Button */}
-        <PrimaryButon title="NEXT"
+        <PrimaryButton title="NEXT"
           onPress={handleNext}
           paddingHorizontal={120}
           paddingVertical={20}

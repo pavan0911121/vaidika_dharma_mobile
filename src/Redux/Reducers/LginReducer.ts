@@ -1,39 +1,46 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
+import client from "../../Networks/Client";
 
-// import {  deviceinfoURL} from "../../networks/EndPoints";
+import URL from "../../Networks/Endpoints"
 
 const initialState = {
-  
-}
 
-export const LoginUser = createAsyncThunk("LOGIN_REDUCER/LoginUser",
-    async(payload,{ rejectWithValue})=>{
-    try{
-        console.log("helloworld");
-        
-    //     const response = await fetch('https://jsonplaceholder.typicode.com/todos/1')
-    //   .then(response => response.json())
-    //   .then(json => {
-    //     const resp = json.json()
-    //     return resp;
-    //   })
-    //   const json = await response.json()
-    //     const userToken = await AsyncStorage.getItem("token");
-    //    const response = await axios.post(deviceinfoURL(),payload, {
-    //         headers: {
-    //             'Content-Type': 'application/json',
-    //             Authorization: userToken
-    //         }
-    //     });
-    //     const json = response;
-    //     if (!response.data) {
-    //         return rejectWithValue(json);
-    //     }
-    }catch(error){
-        // const response = error.response.data.error.message
-        // return response
-    }
-})
+}
+export const RegisterUser = createAsyncThunk("LOGIN_REDUCER/Register",
+    async (payload, { rejectWithValue }) => {
+        try {
+                const response = await client.post(URL.REGISTER(),payload);
+                const json = await response.json();
+                console.log(json,"json");
+                
+                if (!response.ok) {
+                    return rejectWithValue(json);
+                } else {
+                }
+                return json;
+        } catch (error) {
+            // const response = error.response.data.error.message
+            // return response
+        }
+    })
+export const LoginUser = createAsyncThunk("LOGIN_REDUCER/login",
+    async (payload, { rejectWithValue }) => {
+        try {
+           
+                const response = await client.post(URL.LOGIN(),payload);
+                const json = await response.json();
+                console.log(json,"json");
+                
+                if (!response.ok) {
+                    return rejectWithValue(json);
+                } else {
+                }
+                return json;
+        } catch (error) {
+            // const response = error.response.data.error.message
+            // return response
+        }
+    })
 
 
 
@@ -41,17 +48,17 @@ export const loginReducer = createSlice({
     name: "LOGIN_REDUCER",
     initialState,
     reducers: {
-        clearLoginData : ( state ,action) => {
-          
+        clearLoginData: (state, action) => {
+
         },
-        clearOTPData:(state,action) =>{
-           
+        clearOTPData: (state, action) => {
+
         },
-        clearOtpMessage:(state,action) => {
-          
+        clearOtpMessage: (state, action) => {
+
         },
-        clearEmailField:(state,action) =>{
-           
+        clearEmailField: (state, action) => {
+
         }
 
     },
@@ -60,11 +67,12 @@ export const loginReducer = createSlice({
 
         }).addCase(LoginUser.fulfilled, (state, action) => {
 
+
         }).addCase(LoginUser.rejected, (state, action) => {
         })
     }
 })
 
-export const { clearLoginData,clearOTPData,clearEmailField,clearOtpMessage } = loginReducer.actions;
+export const { clearLoginData, clearOTPData, clearEmailField, clearOtpMessage } = loginReducer.actions;
 
 export default loginReducer.reducer;

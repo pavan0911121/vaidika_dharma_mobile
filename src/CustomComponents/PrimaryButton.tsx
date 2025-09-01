@@ -10,7 +10,7 @@ interface Props {
   paddingVertical?: number;
   paddingHorizontal?: number;
 }
-const PrimaryButon:React.FC<Props> = ({
+const PrimaryButton:React.FC<Props> = ({
   title,
   onPress,
   backgroundColor = "#5B3415",
@@ -36,7 +36,7 @@ const PrimaryButon:React.FC<Props> = ({
   );
 }
 
-export default PrimaryButon
+export default PrimaryButton
 
 const styles = StyleSheet.create({
   button: {

@@ -15,15 +15,47 @@ import Facebook from "../../assets/svgIcons/Facebook";
 import Google from "../../assets/svgIcons/Google";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../Redux/Store";
-import { LoginUser } from "../Redux/Reducers/LginReducer";
-interface Props{
+import { LoginUser, RegisterUser } from "../Redux/Reducers/LginReducer";
+import PrimaryButton from "../CustomComponents/PrimaryButton";
+interface Props {
 }
-const LoginScreen:React.FC<Props>=()=>{
+const LoginScreen: React.FC<Props> = () => {
   const [passwordVisible, setPasswordVisible] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [errors, setErrors] = useState({ email: "", password: "" });
   const dispatch = useDispatch();
-const selector = useSelector((state: RootState) => state.LOGIN_REDUCER);
+  const selector = useSelector((state: RootState) => state.LOGIN_REDUCER);
+  
+  const validateInputs = () => {
+    let emailError = "";
+    let passwordError = "";
+
+    // Email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      emailError = "Enter a valid email";
+    }
+
+    // Password validation
+    const passwordRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*]).{8,}$/;
+    if (!passwordRegex.test(password)) {
+      passwordError =
+        "Password must contain 1 uppercase, 1 number, 1 special char, min 8 chars";
+    }
+
+    setErrors({ email: emailError, password: passwordError });
+    if (!emailError && !passwordError) {
+      handleLogin()
+    }
+  };
+  const handleLogin = () => {
+    const payload = {
+      email: email,
+      password: password
+    }
+    dispatch(LoginUser(payload))
+  }
 
   return (
     <SafeAreaView style={styles.container}>
@@ -76,9 +108,7 @@ const selector = useSelector((state: RootState) => state.LOGIN_REDUCER);
       </TouchableOpacity>
 
       {/* Sign In Button */}
-      <TouchableOpacity style={styles.signInButton} onPress={()=>dispatch(LoginUser())}>
-        <Text style={styles.signInText}>SIGN IN</Text>
-      </TouchableOpacity>
+      <PrimaryButton title={"SIGN UP"} onPress={() => validateInputs()} />
 
       {/* Or */}
       <Text style={styles.orText}>Or</Text>
@@ -108,7 +138,7 @@ const styles = StyleSheet.create({
   welcomeText: {
     fontSize: 22,
     fontFamily: "Poppins-Bold",
-    color: "#000000",
+    color: "#E53935",
   },
   highlight: {
     color: "#E53935",
@@ -190,11 +220,11 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
     marginBottom: 12,
   },
-  socialIcon: {
-    width: 20,
-    height: 20,
-    marginRight: 12,
-  },
+  // socialIcon: {
+  //   width: 20,
+  //   height: 20,
+  //   marginRight: 12,
+  // },
   socialText: {
     fontFamily: "Poppins-Regular",
     fontSize: 14,
